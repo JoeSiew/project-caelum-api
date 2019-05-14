@@ -5,14 +5,17 @@ const bodyParser = require('body-parser')
 const dataRoute = require('./routes/data')
 const users = require('./routes/users')
 const mongoose = require('mongoose')
+const config = require('config')
 
 //Production
 const helmet = require('helmet')
 const compression = require('compression')
-
-mongoose.connect('mongodb://localhost:27017/ProjectCaelum', { useNewUrlParser :true } )
-.then(() => console.log('Connected to MongoDB'))
-.catch(err => console.error('Could not connect to MongoDB'))
+//mongodb+srv://Joe:<password>@project-caelum-rli3m.mongodb.net/test?retryWrites=true
+//Database
+const db = config.get('db');
+mongoose.connect(db, { useNewUrlParser :true } )
+.then(() => console.log(`Connected to MongoDB at ${db}...`))
+.catch(err => console.error(`Could not connect to MongoDB at ${db}...`))
 
 app.use(bodyParser.json())
 app.use((req,res,next) => {
