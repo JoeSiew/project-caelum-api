@@ -10,10 +10,9 @@ const config = require('config')
 //Production
 const helmet = require('helmet')
 const compression = require('compression')
-//mongodb+srv://Joe:<password>@project-caelum-rli3m.mongodb.net/test?retryWrites=true
 //Database
 //const db = config.get('db');
-const db = "mongodb+srv://Joe:<joesiew>@project-caelum-rli3m.mongodb.net/ProjectCaelum"
+const db = 'mongodb+srv://Joe:joesiew@project-caelum-rli3m.mongodb.net/test?retryWrites=true'
 mongoose.connect(db, { useNewUrlParser :true } )
 .then(() => console.log(`Connected to MongoDB at ${db}...`))
 .catch(err => console.error(`Could not connect to MongoDB at ${db}...`))
