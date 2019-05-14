@@ -11,8 +11,7 @@ const config = require('config')
 const helmet = require('helmet')
 const compression = require('compression')
 //Database
-//const db = config.get('db');
-const db = 'mongodb+srv://Joe:joesiew@project-caelum-rli3m.mongodb.net/ProjectCaelum'
+const db = config.get('db');
 mongoose.connect(db, { useNewUrlParser :true } )
 .then(() => console.log(`Connected to MongoDB at ${db}...`))
 .catch(err => console.error(`Could not connect to MongoDB at ${db}...`))
