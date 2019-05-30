@@ -16,6 +16,12 @@ mongoose.connect(db, { useNewUrlParser :true } )
 .then(() => console.log(`Connected to MongoDB at ${db}...`))
 .catch(err => console.error(`Could not connect to MongoDB at ${db}...`))
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 app.use(bodyParser.json())
 app.use((req,res,next) => {
     console.log(`${new Date().toString()} => ${req.originalUrl}`, req.body)
