@@ -31,7 +31,7 @@ router.get('/', (req, res) => {
    const month = String(timeNow.getMonth() + 1)
    const day = String(timeNow.getDate())
    const hr = String(timeNow.getHours())
-
+   console.log(`${year}-${month}-${day} ${hr}`)
    DataModel.findOne({
         updatedOn: `${year}-${month}-${day} ${hr}`
     })
