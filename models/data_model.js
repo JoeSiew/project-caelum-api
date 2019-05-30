@@ -12,9 +12,11 @@ let DataSchema = new mongoose.Schema(
                         type: String,
                         required: true
                      },
-        Temperature :[
-                        String
-                     ]
+        Temperature :{
+                        type: String,
+                        required: true
+                     }
+
     }
         ],
     updatedOn:{type:String, required:true},
